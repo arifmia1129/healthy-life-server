@@ -25,3 +25,20 @@ exports.createBlog = async (req, res) => {
         })
     }
 }
+
+
+exports.getBlog = async (req, res) => {
+    try {
+        const blog = await Blog.find();
+        res.status(200).json({
+            success: true,
+            message: "Successfully get all blog",
+            blog
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Something broken"
+        })
+    }
+}

@@ -4,7 +4,7 @@ const blogControllers = require("../controllers/blog.controller");
 
 
 router.route("/")
-    .get()
+    .get(blogControllers.getBlog)
     .post(blogControllers.createBlog)
 
 module.exports = router;
