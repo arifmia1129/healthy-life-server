@@ -57,11 +57,37 @@ exports.updateBlog = async (req, res) => {
             })
         }
 
-        const updatedRes = await Blog.findByIdAndUpdate(id, req.body);
-        console.log(updatedRes);
+        await Blog.findByIdAndUpdate(id, req.body);
         res.status(200).json({
             success: true,
             message: "Successfully updated the blog",
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Something broken"
+        })
+    }
+}
+
+
+exports.deleteBlog = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const blog = await Blog.findById(id);
+
+        if (!blog) {
+            return res.status(400).json({
+                success: false,
+                message: "Blog not found by given id"
+            })
+        }
+
+        await Blog.findByIdAndDelete(id);
+        res.status(200).json({
+            success: true,
+            message: "Successfully delete the blog",
         })
     } catch (error) {
         res.status(500).json({
