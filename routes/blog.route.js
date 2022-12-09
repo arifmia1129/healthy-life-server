@@ -7,4 +7,7 @@ router.route("/")
     .get(blogControllers.getBlog)
     .post(blogControllers.createBlog)
 
+router.route("/:id")
+    .patch(blogControllers.updateBlog)
+
 module.exports = router;
