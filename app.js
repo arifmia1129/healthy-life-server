@@ -1,11 +1,20 @@
 const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+
+
+require("./config/dbConnect");
+
 const app = express();
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(express.static('public'));
+
 app.get("/", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Server working successfully"
-    })
+    res.status(200).send("Routes working")
 })
 
 app.use((req, res, next) => {
