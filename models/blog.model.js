@@ -15,7 +15,7 @@ const blogSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: {
-            values: ["pain", "mind & mood", "men's health", "women's health", "diseases", "heart health", "general"],
+            values: ["pain", "mind & mood", "men's health", "women's health", "diseases", "heart health", "general", "nutrition"],
             message: "Category invalid"
         },
         default: "general"
