@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
-    image:{
-        type:String,
-        required:true,
-        unique:true,
-        trim:true
+    image: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
     },
     title: {
         type: String,
@@ -31,6 +31,11 @@ const blogSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    tags: [{
+        type: String,
+        required: true,
+        trim: true
+    }],
     publishedDate: {
         type: Date,
         default: new Date()
